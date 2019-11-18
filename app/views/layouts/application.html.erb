@@ -1,48 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rails TCC</title>
+    <title>RailsChatTutorial</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: deeppink;">
-      <div class="container">
-        <a class="navbar-brand" href="/">Ideias para o TCC</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="/ideas">Ideias</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="pages/info">Info</a>
-              </li>
-            </ul>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <%= render partial: 'shared/navigation_bar' %>
+          <div class="my-3">
+            <%= yield %>
+          </div>
         </div>
       </div>
-    </nav>
-
-   <div class="container">
-      <%= yield %>
-   </div>
-
-    <footer>
-      <div class="container">
-        Terminando o curso … <%= Time.now.year %>
-      </div>
-    </footer>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-
+    </div>
   </body>
 </html>
