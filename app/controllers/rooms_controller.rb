@@ -4,11 +4,6 @@ class RoomsController < ApplicationController
   # @room = current room when applicable
   before_action :load_entities
 
-  def show
-    @room_message = RoomMessage.new room: @room
-    @room_messages = @room.room_messages.includes(:user)
-  end
-  
   def index
     @rooms = Room.all
   end
@@ -26,6 +21,11 @@ class RoomsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @room_message = RoomMessage.new room: @room
+    @room_messages = @room.room_messages.includes(:user)
   end
 
   def edit
